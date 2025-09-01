@@ -1,0 +1,10 @@
+package com.unifor.Arquiteturas.repositories;
+
+import com.unifor.Arquiteturas.models.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+}
