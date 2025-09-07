@@ -1,6 +1,7 @@
 package com.unifor.Arquiteturas.controllers;
 
 import com.unifor.Arquiteturas.models.Product;
+import com.unifor.Arquiteturas.models.dtos.ProductDTO;
 import com.unifor.Arquiteturas.services.ProductServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,17 +17,17 @@ public class ProductController {
     private ProductServices service;
 
     @PostMapping("/create")
-    public ResponseEntity<Product> createProduct(@RequestBody Product product) {
+    public ResponseEntity<ProductDTO> createProduct(@RequestBody ProductDTO product) {
         return ResponseEntity.ok().body(service.createProduct(product));
     }
 
     @GetMapping("/findAll")
-    public ResponseEntity<List<Product>> findAll() {
+    public ResponseEntity<List<ProductDTO>> findAll() {
         return ResponseEntity.ok().body(service.findAll());
     }
 
     @GetMapping("/findById/{id}")
-    public ResponseEntity<Product> findById(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<ProductDTO> findById(@PathVariable(value = "id") Long id) {
         return ResponseEntity.ok().body(service.findById(id));
     }
 }
